@@ -1,0 +1,24 @@
+Problem Statement
+N people are standing in a queue in which A of them like apple and B of them like oranges. How many people like both apple and oranges.
+
+Note:- It is guaranteed that each and every person likes at least one of the given two.
+
+Input
+User Task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the function LikesBoth() that takes integers N, A, and B as arguments.
+
+Constraints:-
+1 <= N <= 10000
+1 <= A <= N
+1 <= B <= N
+
+Output
+Return the number of people that like both of the fruit.
+
+
+
+static int LikesBoth(int N, int A, int B){
+      
+return ((A+B)-N);
+
+}
