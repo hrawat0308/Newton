@@ -1,0 +1,77 @@
+Problem Statement
+You are given a matrix A of dimensions n x m. The task is to perform boundary traversal on the matrix in clockwise manner.
+
+Input
+The first line of input contains T denoting the number of testcases. T testcases follow. Each testcase two lines of input. The first line contains dimensions of the matrix A, n and m. The second line contains n*m elements separated by spaces.
+
+Constraints:
+1 <= T <= 100
+1 <= n, m <= 30
+0 <= A[i][j] <= 100
+
+Output
+For each testcase, in a new line, print the boundary traversal of the matrix A.
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int test = sc.nextInt();
+        while(test>0){
+            int N = sc.nextInt();
+            int M = sc.nextInt();
+            int temp = 0;
+            int[][] matrix = new int[N][M];
+            for(int i=0; i<N; i++){
+                for(int j=0;j<M;j++){
+                    matrix[i][j] = sc.nextInt();
+                }
+            }
+            
+            if(M==1 || N==1){
+                for(int i=0; i<N; i++){
+                    for(int j=0;j<M;j++){
+                        System.out.print(matrix[i][j]+" ");
+                        }
+                } 
+            }
+            else{
+                int j = 0;
+                while(j<M){
+                    System.out.print(matrix[0][j]+" ");
+                    j++;
+                }
+                int i = 1;
+                while(i<N){
+                    System.out.print(matrix[i][M-1]+" ");
+                    i++;
+                }
+                j = M-2;
+                while(j>=0){
+                    System.out.print(matrix[N-1][j]+" ");
+                    j--;
+                }
+                i = N-2;
+                while(i>0){
+                    System.out.print(matrix[i][0]+" ");
+                    i--;
+                }
+                
+            }
+            
+            
+            
+            
+            test--;
+			System.out.println();
+        }	
+	}
+}
