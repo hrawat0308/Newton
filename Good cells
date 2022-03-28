@@ -1,0 +1,51 @@
+Problem Statement
+Given a boolean Matrix of size N*M, A cell of the matrix is called "Good" if it is completely surrounded by the cells containing '1' i.e. each adjacent cell (which shares a common edge) contains '1'. Your task is to find the number of such cells.
+
+See the below example for a better understanding
+
+Input
+First line of input contains two space- separated integers N and M. Next N lines of input contain M space- separated integers depicting the values of the matrix.
+
+Constraints:-
+3 <= N, M <= 500
+0 <= Matrix[][] <= 1
+
+
+Output
+Print the number of good cells.
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[][] arr= new int[N][M];
+        int count=0;
+        for(int i=0; i<N; i++){
+            for(int j=0; j<M; j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i = 1;i < N-1; i++){
+            for(int j = 1; j < M-1; j++){
+                if(arr[i][j-1] == 1 && arr[i][j+1] == 1 && arr[i-1][j] == 1 && arr[i+1][j] == 1){
+                    count++;
+                }
+            }
+        }
+
+        System.out.println(count);
+
+	}
+}
