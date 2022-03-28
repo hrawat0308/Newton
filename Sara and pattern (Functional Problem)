@@ -1,0 +1,40 @@
+Problem Statement
+Sara loves patterns, today she encounters an interesting pattern and wants to write a code that can print the pattern of a given height N. As Sara is weak in programming help her to code it.
+
+The pattern for height 6:-
+
+0 4 8 12 16 20
+6 10 14 18 22 26
+12 16 20 24 28 32
+18 22 26 30 34 38
+24 28 32 36 40 44
+30 34 38 42 46 50
+
+Input
+User Task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the function Pattern() that takes integer N as an argument.
+
+Constraints:-
+1 <= N <= 100
+
+
+Output
+Print the given pattern.
+
+
+
+static void Pattern(int N){
+//Enter your code here
+int num1 = 0;
+int num2 = 0;
+    for(int i = 1; i<= N ; i++){
+        num1 = num2;
+        for(int j = 1; j<=N; j++){
+            System.out.print(num1+" ");
+            num1 += 4;
+            
+        }
+        System.out.println("");
+        num2 += 6;
+    }
+}
