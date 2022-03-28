@@ -1,0 +1,180 @@
+Problem Statement
+You are given a matrix Mat of m rows and n columns. The matrix is boolean so the elements of the matrix can only be either 0 or 1.
+Now, if any row of the matrix contains a 1, then you need to fill that whole row with 1. After doing the mentioned operation, you need to print the modified matrix.
+
+Input
+The first line of input contains T denoting the number of testcases. T testcases follow.
+The first line of each testcase contains m and n denoting number of rows and number of columns.
+Then next m lines contain n elements denoting the elements of the matrix.
+
+Constraints:
+1 <= T <= 20
+1 <= m, n <= 700
+Mat[I][j] ∈ {0,1}
+
+Output
+For each testcase, in a new line, print the modified matrix.
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main(String[] args) {
+    //     Scanner sc = new Scanner(System.in);
+    //     int test = sc.nextInt();
+    //     while(test>0){
+            
+    //         int Row = sc.nextInt();
+    //         int Col = sc.nextInt();
+    //         int[][] Matrix = new int[Row][Col];
+    //         int[] rowWithOne = new int[Row];
+    //         for(int i = 0; i<Row; i++){
+    //             for(int j=0; j<Col; j++){
+    //                 Matrix[i][j] = sc.nextInt();
+    //                 if(Matrix[i][j] == 1){
+    //                     rowWithOne[i] = 1;
+    //                 }
+    //             }
+                
+    //         }
+
+        
+    //     for(int i=0; i<Row; i++){
+    //         int k = 0;
+    //         if(rowWithOne[i] == 1){
+    //             while(k<Col){
+    //             System.out.print(1+" ");
+    //             k++;
+    //             }
+    //         }
+    //         else{
+    //             while(k<Col){
+    //             System.out.print(0+" ");
+    //             k++;
+    //             }
+    //         }
+    //     System.out.println();
+    //     }
+
+    //     // for(int i = 0; i<Row; i++){
+    //     //    for(int j=0;j<Col;j++){
+    //     //        if(Matrix[i][j] == 1){
+    //     //             int k = 0;
+    //     //             while(k<Col){
+    //     //                 Matrix[i][k] = 1;
+    //     //                 k++;
+    //     //             }
+    //     //             break;
+    //     //         }
+    //     //    }
+            
+    //     // }
+
+    //     // for(int i = 0; i<Row; i++){
+    //     //     for(int j=0;j<Col;j++){
+    //     //         System.out.print(Matrix[i][j]+" ");
+    //     //     }
+    //     //         System.out.println();
+    //     // }
+
+            
+            
+            
+            
+            
+            
+            
+    //         // ModifyMatrix(Matrix, Row, Col);
+    //         // printMatrix(Matrix, Row, Col);
+            
+            
+            
+    //         test--;
+    //     }
+        
+    // }
+    
+    // // public static void ModifyMatrix(int[][] Matrix, int r, int c){
+    // //     // int[] row = new int[r];
+    // //     // int[][] resultantMatrix = new int[r][c];
+    // //     // for(int i= 0;i<r;i++){
+    // //     //     row[i] = 0;
+    // //     // }
+        
+    // //     for(int i = 0; i<r; i++){
+    // //        for(int j=0;j<c;j++){
+    // //            if(Matrix[i][j] == 1){
+    // //                 int k = 0;
+    // //                 while(k<c){
+    // //                     Matrix[i][k] = 1;
+    // //                     k++;
+    // //                 }
+    // //                 break;
+    // //             }
+    // //        }
+            
+    // //     }
+        
+    // //     // for(int i = 0; i<r; i++){
+    // //     //     for(int j=0;j<c;j++){
+    // //     //         if(row[i] == 1){
+    // //     //             Matrix[i][j] = 1;
+    // //     //         }
+    // //     //     }
+    // //     // }
+    // //     // printMatrix(Matrix, r, c);
+        
+    // // }
+    
+    // // public static void printMatrix(int[][] Matrix, int r,int c){
+    // //         for(int i = 0; i<r; i++){
+    // //         for(int j=0;j<c;j++){
+    // //             System.out.print(Matrix[i][j]+" ");
+    // //         }
+    // //             System.out.println();
+    // //     }
+    // // }
+
+    Scanner sc =new Scanner(System.in);
+        int testCase=sc.nextInt();
+        while(testCase>0){
+            int row=sc.nextInt();
+            int column=sc.nextInt();
+            int array[]=new int[row];
+            int matrix[][]=new int[row][column];
+            for(int i=0; i<row; i++){
+                for(int j=0; j<column; j++){
+                    matrix[i][j]=sc.nextInt();
+                        if(matrix[i][j]==1){
+                            
+                            array[i]=1;
+                        }
+                    }
+                    
+                }
+            String str1 ="1 ";
+            String str0 ="0 ";
+            for(int i=0; i<row; i++){
+                if(array[i]==1){
+                    System.out.println(str1.repeat(column));
+
+                }
+                else System.out.println(str0.repeat(column));
+            }
+
+            testCase--;
+        }
+}
+}
