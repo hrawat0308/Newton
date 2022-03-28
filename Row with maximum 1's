@@ -1,0 +1,58 @@
+Problem Statement
+Given a boolean matrix of size N*M in which each row is sorted your task is to print the index of the row containing maximum 1's. If multiple answer exist print the smallest one.
+
+Input
+First line contains two space separated integers denoting values of N and M. Next N lines contains M space separated integers depicting the values of the matrix.
+
+Constraints:-
+1 < = M, N < = 1000
+0 < = Matrix[][] < = 1
+
+Output
+Print the smallest index (0 indexing) of a row containing the maximum number of 1's
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[][] arr = new int[N][M];
+        int[] rowsWithOne = new int[N];
+        int sum;
+        int max=0;
+        for(int i = 0; i<N ; i++){
+            sum = 0;
+            for(int j = 0; j<M ; j++){
+                arr[i][j] = sc.nextInt();
+                sum+= arr[i][j];
+            }
+            rowsWithOne[i] = sum;
+            if(max < rowsWithOne[i]){
+                max = rowsWithOne[i];
+            }
+        }
+
+        
+        // for(int i=0;i<N;i++){
+            //     if(max < rowsWithOne[i]){
+            //     max = rowsWithOne[i];
+            // }
+        // }
+
+        for(int i=0;i<N;i++){
+            if(rowsWithOne[i] == max){
+                System.out.println(i);
+                break;
+            }
+        }
+
+	}
+}
