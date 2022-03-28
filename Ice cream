@@ -1,0 +1,29 @@
+Problem Statement
+Sara is fond of ice- cream initially she had N icecreams with her. If Sara eats exactly half of the ice cream she has in a day and the remaining icecreams get tripled each night. How many ice creams does Sara have at the end of D days?
+
+Note:- Take floor value while dividing by 2.
+
+Input
+User Task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the function Icecreams() that takes integers N and D as parameters.
+
+Constraints:-
+1 <= N <= 100
+1 <= D <= 20
+
+
+Output
+Return a single integer denoting the number of ice creams at the end of D days.
+
+
+static int Icecreams (int N, int D){
+//Enter your code here
+while(D>0){
+    N = N - N/2;
+    N = N*3;
+    
+    D--;
+}
+return N;
+
+}
