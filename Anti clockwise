@@ -1,0 +1,74 @@
+Problem Statement
+Given an N*N matrix. Print the elements of the matrix in anticlockwise order (see the sample for better understanding).
+
+Input
+First line contains N.
+N lines follow each containing N space seperated integers.
+
+Constraints:-
+2 <= N <= 500
+1 <= Mat[i][j] <= 1000
+
+
+Output
+Output N*N integers in a single line separated by spaces, which are the elements of the matrix in anti-clockwise order.
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int[][] arr = new int[N][N];
+		for(int i = 0; i<N; i++){
+			for(int j = 0; j<N; j++){
+				arr[i][j] = sc.nextInt();
+				// System.out.print(arr[i][j]+" ");
+			}
+			// System.out.println();
+		}
+		
+		int rowStartIndex = 0; //k
+		int rowEndIndex = N; //m
+		int colStartIndex = 0; //l
+		int colEndIndex = N; //n
+		
+		while(rowStartIndex < rowEndIndex && colStartIndex < colEndIndex){
+			for(int i = rowStartIndex ; i < rowEndIndex; i++ ){
+				System.out.print(arr[i][colStartIndex]+" ");
+			}
+			colStartIndex++;
+
+			for(int i = colStartIndex ; i < colEndIndex; i++){
+				System.out.print(arr[rowEndIndex - 1][i]+" ");
+			}
+			rowEndIndex--;
+
+			if(rowStartIndex < rowEndIndex){
+				for(int i = rowEndIndex-1 ; i>=rowStartIndex ; i--){
+					System.out.print(arr[i][colEndIndex - 1]+" ");
+				}
+				colEndIndex--;
+			}
+
+			if(colStartIndex < colEndIndex){
+				for(int i = colEndIndex - 1; i>=colStartIndex; i--){
+					System.out.print(arr[rowStartIndex][i]+" ");
+				}
+				rowStartIndex++;
+			}
+
+		}
+		
+
+
+
+
+	}
+}
