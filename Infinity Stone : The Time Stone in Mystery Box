@@ -1,0 +1,54 @@
+Problem Statement
+The time stone is hidden inside a sacred box which has a lock of N different rings and each ring has 0-9 serially on it. Initially, all N- rings together show an N- digit integer but there is a particular code only that can open the lock. You can rotate each ring any number of times in either direction. You have to find the minimum number of rotations done on rings of the lock to open the lock.
+
+
+Input
+First line contains the integer N.
+Second line contains a string that depicts the digit on rings
+Third line contains a string that depicts the unlock code
+
+Constraint :
+0 <= digit on each ring <= 9
+1 <= |String| <= 100000
+
+
+Output
+Print the minimum rotation of rotations done on the rings to unlock the box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        String input = sc.next();
+        String unlockCode = sc.next();
+        int i=0;
+        int count = 0;
+        while(i<N){
+            int a = (int)input.charAt(i) -'0';
+            int b = (int)unlockCode.charAt(i)-'0';
+            int rotate = Math.min(Math.abs(a-b),10 - Math.abs(a-b));
+            count = count + rotate;
+            
+
+        i++;
+        }
+        System.out.println(count);
+	}
+}
