@@ -1,0 +1,63 @@
+Problem Statement
+You are given two strings S1 and S2 of length N. You need to make those strings equal by replacing any index in string S1 with any character. The cost incurred is as follows:
+You pay X units for the first replacement, you do not pay anything for the second replacement, you pay X units for the third replacement, you do not pay anything for the fourth replacement, and so on.
+
+Find the total units you need to pay to make S1 equal to S2.
+
+
+Input
+The first line of the input contains two integers, N and X.
+The second and third lines of the input contain strings S1 and S2 respectively.
+
+Constraints
+1 <= N <= 200000
+1 <= X <= 100
+S1 and S2 contain lowercase characters of the english alphabet.
+
+
+Output
+Output a single integer, the number of units we need to pay.
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int X = sc.nextInt();
+        
+        int count = 0;
+        int pay = 0;
+        String str1 = sc.next();
+        String str2 = sc.next();
+
+        for(int i=0; i<str1.length(); i++){
+            if(str1.charAt(i) != str2.charAt(i)){
+                // str1.charAt(i) = String.valueOf(str2.charAt(i));
+                count++;
+            }
+        }
+
+    if(count%2==0){
+        pay = (count/2)*X;
+    }
+    else{
+        pay = ((count/2)+1)*X;
+    }
+    System.out.println(pay);
+
+	}
+}
