@@ -1,0 +1,52 @@
+Problem Statement
+Given a string s, find the length of the longest substring without repeating characters.
+
+Note : String contains spaces also.
+
+
+Input
+First Line contains input of the string.
+
+Constraints
+0 <= string. length <= 50000
+s consists of English letters, digits, symbols and spaces.
+
+
+Output
+Print the length of the longest substring without repeating characters.
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+                      Scanner sc=new Scanner(System.in);
+                      String s=sc.nextLine();
+                      //   System.out.println("Vivek");
+                    //   System.out.println(s);
+        int start = 0;
+        int end = 0;
+        int maxLength = 0;
+        Set<Character> uniqueCharacters = new HashSet<>();
+        while (end < s.length()) {
+            if (uniqueCharacters.add(s.charAt(end))) {
+                end++;
+                maxLength = Math.max(maxLength, uniqueCharacters.size());
+            } else {
+                uniqueCharacters.remove(s.charAt(start));
+                start++;
+            }
+        }
+        System.out.println(maxLength);
+	}
+}
