@@ -1,0 +1,55 @@
+Problem Statement
+You are given a string S of length N consisting of lowercase characters 'a' and 'b'. In one operation, you can select a character and make it equal to one of its adjacent characters. For example, if S = "aab", in one operation you can convert it to any of the following:
+
+1. "aab": By changing the 1st character to the 2nd character.
+2. "aab": By changing the 2nd character to the 1st character.
+3. "abb": By changing the 2nd character to the 3rd character.
+4. "aaa": By changing the 3rd character to the 2nd character.
+
+Find the minimum number of operations to make all the characters in the string equal.
+
+
+Input
+The first line of the input contains a single integer N.
+The second line contains a string S of length N consisting of only 'a' and 'b'.
+
+Constraints:
+1 ≤ N ≤ 5000
+
+
+
+Output
+Print the minimum number of operations to make all the characters in the string equal.
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int N = sc.nextInt();
+       String str = sc.next();
+       int countA = 0;
+       int countB = 0;
+       for(int i=0;i<N;i++){
+           if(str.charAt(i) == 'a'){
+               countA++;
+           }
+           else{
+               countB++;
+           }
+       }
+    int res = countA < countB ? countA : countB;
+
+    System.out.println(res);
+	}
+}
