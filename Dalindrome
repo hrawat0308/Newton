@@ -1,0 +1,80 @@
+Problem Statement
+Everyone has heard of palindromes, right! A palindrome is a string that remains the same if reversed.
+Let's define a new term, Dalindrome.
+A Dalindrome is a string whose atleast one of the substrings is a palindrome.
+Given a string, find whether it's a Dalindrome.
+
+
+Input
+The only line of input contains a string to be checked.
+
+Constraints
+1 <= length of string <= 100
+
+
+Output
+Output "Yes" if string is a Dalindrome, else output "No".
+
+
+
+
+
+
+
+
+// "static void main" must be defined in a public class.
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+public class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+
+            String str = sc.nextLine();
+
+            if(check(str)){
+                System.out.println("Yes");
+            }
+            else{
+                System.out.println("No");
+            }
+
+   
+
+        
+    }
+
+    public static boolean check(String s){
+        String str = "";
+         for(int i=0; i<s.length()-1; i++){
+             str = Character.toString(s.charAt(i));
+            for(int j = i+1; j<s.length();j++){
+                str = str + Character.toString(s.charAt(j));
+                if(isPalindrome(str)){
+                    return true;
+                }
+            }
+        }
+       return false;
+
+    }
+
+    public static boolean isPalindrome(String str){
+        // System.out.println();
+        String s = new StringBuilder(str).reverse().toString();
+        // System.out.print(str+" "+s);
+        if(s.equals(str)){
+            // System.out.print(" true ");
+            return true;
+        }
+        else{
+            // System.out.println(" false ");
+            return false;
+        }
+    }
+      // System.out.println("Yes"); 
+    
+}
