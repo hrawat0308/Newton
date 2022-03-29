@@ -1,0 +1,59 @@
+Problem Statement
+You are given a sequence of numbers of size N. You have to find if there is a way to insert + or - operator in between the numbers so that the result equals K.
+
+
+Input
+The first line of input contains two integers N and K. The next line of input contains N space- separated integers depicting the values of the sequence.
+
+Constraints:-
+1 <= N <= 20
+-10^15 <= K <= 10^15
+0 <= Numbers <=10^13
+
+
+Output
+Print YES if possible else print NO.
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        long K = sc.nextInt();
+        long[] arr = new long[N];
+        for(int i=0;i<N;i++){
+            arr[i] = sc.nextInt();
+        }
+
+        boolean res = solve(arr,K,0,0,arr.length);
+        if(res){
+            System.out.println("YES");
+        }
+        else{
+            System.out.println("NO");
+        }
+
+    }
+
+    public static boolean solve(long[] arr,long k, long currSum,int currIndex, long N){
+        
+        if(currIndex==N){
+            if(currSum==k){
+                return true;
+            }   else{
+                return false;
+            }
+    }
+    
+    return (solve(arr,k,currSum+arr[currIndex],currIndex+1,N))||(solve(arr,k,currSum-arr[currIndex],currIndex+1,N));
+    
+    }
+}
