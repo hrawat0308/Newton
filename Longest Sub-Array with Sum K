@@ -1,0 +1,68 @@
+Problem Statement
+Given an array containing N integers and an integer K. Your task is to find the length of the longest Sub-Array with sum of the elements equal to the given value K.
+
+
+Input
+The first line of input contains an integer T denoting the number of test cases. Then T test cases follow. Each test case consists of two lines. The first line of each test case contains two integers N and K and the second line contains N space-separated elements of the array.
+
+Constraints:-
+1<=T<=500
+1<=N,K<=10^5
+-10^5<=A[i]<=10^5
+
+Sum of N over all test cases does not exceed 10^5
+
+
+Output
+For each test case, print the required length of the longest Sub-Array in a new line. If no such sub-array can be formed print 0.
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        while(test>0){
+            int N = sc.nextInt();
+            int k = sc.nextInt();
+            int[] arr = new int[N];
+            for(int i=0;i<N;i++){
+                arr[i] = sc.nextInt();
+            }
+
+            int res = longestSubArray(N,k,arr);
+            System.out.println(res);
+            
+            test--;
+        }
+	}
+
+    public static int longestSubArray(int N, int k, int[] arr){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int cursum = 0, maxlength = 0;
+        for(int i=0;i<N;i++){
+            cursum += arr[i];
+            if(cursum == k){
+                maxlength = i+1;
+            }
+            if(!map.containsKey(cursum)){
+                map.put(cursum,i);
+            }
+            if(map.containsKey(cursum - k)){
+                if(maxlength < (i - map.get(cursum-k))){
+                    maxlength = i-map.get(cursum-k);
+                }
+            }
+        }
+        return maxlength;
+    }
+}
