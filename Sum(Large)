@@ -1,0 +1,110 @@
+Problem Statement
+Given two integers a and b your task is to print the summation of these two numbers
+
+
+Input
+Input contains a single line containing two space separated integers a and b.
+
+Constraints:-
+1 <= a, b <= 1020000
+
+
+Output
+Print the sum of a and b.
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // String a = sc.next();
+        // String b = sc.next();
+        // String ans = "";
+        // if(b.length() > a.length()){
+        //     String t = a;
+        //     a = b;
+        //     b = t;
+        // }
+
+        // int n1 = a.length();
+        // int n2 = b.length();
+        // int sum;
+        // if(n1 == 1 && n2 == 1){
+        //     sum = Integer.parseInt(a)+Integer.parseInt(b);
+        //     System.out.println(sum);
+        // }
+
+        // else{
+
+        //     for(int i=0;i<(n1-n2);i++){
+        //     b = "0"+b;
+        // }
+        // int carry = 0;
+        // for(int i=n1-1; i>=0;i--){
+        //     sum = (int)a.charAt(i)-'0' + (int)b.charAt(i)-'0' + carry;
+        //     // System.out.println(a.charAt(i)+" "+b.charAt(i)+" "+sum);
+        //     if(sum>9){
+        //         carry = sum/10;
+        //         sum = sum%10;
+        //     }
+        //     else carry = 0;
+        //     ans = ans + Integer.toString(sum);
+        // }
+
+        // for(int i=n1-1;i>=0;i--){
+        //     System.out.print(ans.charAt(i));
+        // }
+        // }
+
+        String str1 = sc.next();
+        String str2 = sc.next();
+        if (str1.length() > str2.length()){
+                String t = str1;
+                str1 = str2;
+                str2 = t;
+        }
+        
+        String str = "";
+        int n1 = str1.length(), n2 = str2.length();
+
+        str1=new StringBuilder(str1).reverse().toString();
+        str2=new StringBuilder(str2).reverse().toString();
+
+        int carry = 0;
+        for (int i = 0; i < n1; i++){
+            int sum = ((int)(str1.charAt(i) - '0') + (int)(str2.charAt(i) - '0') + carry);
+            str += (char)(sum % 10 + '0');
+            carry = sum / 10;
+         }
+
+        for (int i = n1; i < n2; i++)
+        {
+            int sum = ((int)(str2.charAt(i) - '0') + carry);
+            str += (char)(sum % 10 + '0');
+            carry = sum / 10;
+        }
+
+        if (carry > 0)
+            str += (char)(carry + '0');
+            str = new StringBuilder(str).reverse().toString();
+            
+            
+        System.out.println(str);
+
+        
+        
+	}
+}
