@@ -1,0 +1,60 @@
+Problem Statement
+Sansa has discovered Theon is at Winterfell. Ramsay is forcing him to apologize to her for supposedly killing her younger brothers. But Sansa will accept the apology string S if it satisfies the following conditions for a given value of N:
+String S should have exactly N distinct substrings.
+Length of the string should be minimum possible.
+Among all shortest strings, S should be lexicographically smallest one.
+
+
+Input
+The first and the only line of input contains an integer N.
+
+Constraints
+1 <= N <= 300
+
+
+Output
+Output the apology string S.
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	static int count(String S){
+    TreeSet<String> set = new TreeSet<>();
+    for(int i = 0; i< S.length(); i++)
+        for(int j = i; j< S.length(); j++)
+            set.add(S.substring(i, j+1));
+     	return set.size();
+    }
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int len = 1;
+        while ((len*(len+1))/2 < n)len++;
+        StringBuilder ans = new StringBuilder("");
+        for(int i = 0; i< len; i++){
+            for(char ch = 'a'; ch <= 'z'; ch++){
+                StringBuilder tmp = new StringBuilder(ans);
+                tmp.append(ch);
+                char cc = 'z';
+                for(int j = i+1; j< len; j++){
+                    tmp.append(cc--);
+                }
+                if(count(tmp.toString()) >= n){
+                    ans.append(ch);
+                    break;
+                }
+            }
+      
+        }
+        System.out.println(ans.toString());
+  
+	}
+}
