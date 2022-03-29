@@ -1,0 +1,58 @@
+Problem Statement
+Two girls are writing a word each on separate pieces of paper. The words may or may not hold any meaning and can be of different lengths. They both are starting to learn about anagrams. An anagram of a string is basically a string which is its permutation. However, they face a lot of issues in this process. Your task is to help them find the minimum number of deletions to be made in those words (total count of deletions in both strings) such that both the words are anagrams of each other.
+
+
+Input
+The first line contains a single string.
+The second line contains a single string.
+
+Constraints:
+1<= |s1|, |s2|<=10000
+It is guaranteed that both the strings consist of lowercase English letters, ascii[a- z].
+
+
+Output
+A single integer denoting the minimum number of deletions to be made in both strings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.next();
+        String str2 = sc.next();
+        
+        int[] res = new int[26];
+        for(int i=0; i<str1.length();i++){
+            res[str1.charAt(i) - 'a']++;
+        }
+
+        for(int i=0; i<str2.length(); i++){
+            res[str2.charAt(i) - 'a']--;
+        }
+
+        int count = 0;
+        for(int i=0;i<res.length;i++){
+            count+= Math.abs(res[i]);
+        }
+
+        System.out.println(count);
+
+	}
+}
