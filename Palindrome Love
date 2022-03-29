@@ -1,0 +1,60 @@
+Problem Statement
+Tom loves palindromes. He has the power to convert any ordinary string to a palindrome.
+In one move tom can choose a character of a string and change it to any other character.
+Given a string, find the minimum number of moves in which tom can change it to a palindrome.
+
+
+Input
+Input consists of a string.
+Every character of a string contains lowercase alphabets 'a' to 'z' inclusive.
+
+Constraints
+1 <= |s| <= 1000
+
+
+Output
+The minimum number of moves to convert the given string to a palindrome.
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String str2 = "";
+        int count = 0;
+        for(int i=str.length()-1 ; i>=0 ; i--){
+            str2 += str.charAt(i);
+        }
+
+        if(str == str2){
+            System.out.println(0);
+        }
+        else{
+            for(int i=0; i<str.length()/2 ; i++){
+                if(str.charAt(i)!= str.charAt(str.length()-1-i)){
+                    count++;
+                }
+            }
+
+            System.out.println(count);
+
+        }
+
+
+
+	}
+}
