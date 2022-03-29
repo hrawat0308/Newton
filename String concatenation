@@ -1,0 +1,23 @@
+Problem Statement
+Given two strings Str1 and Str2 your task is to print the concatenation of the given two strings.
+
+
+Input
+User Task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the function StringConcatenation() that takes the string Str1 and Str2 as input.
+
+Note:- String will contain uppercase and lowercase English letters.
+
+
+Output
+Return the concatenation of both the strings.
+
+
+
+
+
+
+static String StringConcatenation(String Str1, String Str2){
+    String str = Str1 + Str2;
+   return str;
+}
