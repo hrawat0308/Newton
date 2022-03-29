@@ -35,7 +35,7 @@ public class Main {
 
             String str = sc.nextLine();
 
-            if(check(str)){
+            if(check(str) || str.length() == 1){
                 System.out.println("Yes");
             }
             else{
