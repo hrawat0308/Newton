@@ -1,0 +1,73 @@
+Problem Statement
+Given an array of N elements, your task is to find the count of repeated elements. Print the repeated elements in ascending order along with their frequency.
+Have a look at the example for more understanding.
+
+Input
+The first line of input contains a single integer N, the next line of input contains N space- separated integers depicting the values of the array.
+
+Constraints:-
+1 <= N <= 100000
+1 <= Arr[i] <= 100000
+
+Output
+For each duplicate element in sorted order in a new line, First, print the duplicate element and then print its number of occurence space- separated.
+
+Note:- It is guaranteed that at least one duplicate element will exist in the given array.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] arr = new int[N];
+        for(int i=0; i<N;i++){
+            arr[i] = sc.nextInt();
+            // System.out.print(arr[i]+" ");
+        }
+
+        Arrays.sort(arr); 
+
+        
+        HashMap<Integer, Integer> maxNumber = new HashMap<>();
+        
+        
+        int count;
+        
+        for(int i = 0; i<arr.length; i++){
+            count = 0;
+            if(maxNumber.containsKey(arr[i])){
+                maxNumber.put(arr[i], maxNumber.get(arr[i])+1);
+            }   
+            else{
+                maxNumber.put(arr[i],++count);   
+            }
+        }
+        
+        for(int val : maxNumber.keySet()){
+            if(maxNumber.get(val) >= 2){
+                System.out.println(val+" "+maxNumber.get(val));
+            }
+        }
+        
+
+       
+        
+    }
+}
