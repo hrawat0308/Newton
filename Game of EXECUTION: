@@ -1,0 +1,70 @@
+Problem Statement
+To seek revenge on Midgard, Loki devises a plan to torture the humans by making them take part in one of his silly games. He makes N people sit in a circle. He says he will kill every kth person sitting in the circle, starting from 1st person.
+Loki performs his revenge prank until and unless 1 survivor remains.
+What is the initial position of the survivor, if the indexing is clockwise?
+
+
+
+Input
+The first line of input contains a single integer T. The next T line of input contains Two space separated integers each containing value of N and k.
+
+
+Constraints:
+1 <= T <= 100
+1 <= k, N <= 20
+
+
+Output
+Print the initial position of the survivor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+		int test = sc.nextInt();
+		while(test>0){
+			int n = sc.nextInt();
+			int k = sc.nextInt();
+			int res = LokiGame(n,k);
+			System.out.println(res+1);
+			test--;
+		}
+	}
+
+	public static int LokiGame(int n,int k){
+		if(n==1) return 0;
+		return (LokiGame(n-1,k) + k)%n;
+	}
+}
